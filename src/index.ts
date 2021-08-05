@@ -3,4 +3,4 @@ export { requestStatuses } from './reducer';
 export * from './hooks';
 export * from './actionCreators';
 
-export type { ActionType, MultiProcessActionType } from './model';
+export * from './model';
