@@ -1,6 +1,6 @@
 {
   "name": "react-request-statuses",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Utility library for handle request statuses",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
