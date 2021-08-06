@@ -11,11 +11,11 @@ import {
   Success,
 } from '../model';
 
-export const requestsStatusesRootSelector = (state: {
+const requestsStatusesRootSelector = (state: {
   requestStatuses: RequestStatusesReducer;
 }): RequestStatusesReducer => state.requestStatuses;
 
-export const useRequestsStatusForActionSelector = <T extends ActionTypes<T>>(
+const useRequestsStatusForActionSelector = <T extends ActionTypes<T>>(
   action: T extends AsyncActionType
     ? AsyncActionType
     : { majorType: string; id?: ActionID },
