@@ -6,7 +6,7 @@
   "module": "dist/index.modern.js",
   "author": "Andrii Bodryi",
   "license": "MIT",
-  "repository": "https://github.com/andriibodryi/react-lifecycle-hook",
+  "repository": "https://github.com/andriibodryi/react-request-statuses",
   "source": "src/index.ts",
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
