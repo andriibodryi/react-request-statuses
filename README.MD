@@ -10,7 +10,7 @@ React Request Statuses gives an ability to avoid a lot of isLoading. statuses in
 - Get Failed message
 ## Code Sample
 
-###Before:
+### Before:
 You had to create isLoading status for every action which needs handling in a template.
 
 ```js
@@ -54,7 +54,7 @@ export const reducer = createReducer(initialState, {
 });
 ```
 
-###After:
+### After:
 After you no longer need to create an isLoading status, since you have the separate place with registered statuses for all actions.
 
 ```js
@@ -73,7 +73,7 @@ export const reducer = createReducer(initialState, {
   },
 });
 ```
-###Components usage:
+### Components usage:
 Now if you are interested in some status of your action,it is simple to subscribe on that in the template.
 
 ```js
