@@ -1,6 +1,6 @@
 {
   "name": "react-request-statuses",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Utility library for handle request statuses",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
@@ -33,13 +33,11 @@
     ]
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-redux": "^7.0.0"
+    "react": "^16.13.1",
+    "react-redux": "^7.2.4"
   },
   "devDependencies": {
-    "@reduxjs/toolkit": "^1.6.1",
     "@types/jest": "^26.0.24",
-    "@types/lodash.get": "^4.4.6",
     "@types/node": "^12.20.18",
     "@types/react": "^16.14.11",
     "@types/react-redux": "^7.1.18",

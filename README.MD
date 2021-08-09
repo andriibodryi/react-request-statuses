@@ -1,7 +1,7 @@
 # React Request Statuses
 
 ##Purpose
-React Request Statuses gives an ability to avoid a lot of isLoading. statuses in your project and provide the simple API for subscribing on 3 statuses of your async action.
+React Request Statuses gives an ability to avoid a lot of isLoading statuses in your project and provide the simple API for subscribing on 3 statuses of your async action.
 
 ## You can subscribe on the following states:
 
@@ -114,7 +114,7 @@ export const SomeComponent = () => {
 Open a Terminal in the project root and run:
 
 ```sh
-yarn react-request-statuses
+yarn add react-request-statuses
 ```
 or
 ```sh

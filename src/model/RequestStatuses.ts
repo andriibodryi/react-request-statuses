@@ -10,6 +10,7 @@ import {
 export type ActionSubscriptionType<T> = (
   onSuccessCallback?: (data?: Success<T>) => void,
   onFailedCallback?: (data?: string) => void,
+  onCanceledCallback?: (data?: Cancel<T>) => void,
 ) => void;
 
 export type ReducedActionPayload<T> =

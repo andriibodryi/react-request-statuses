@@ -9,6 +9,8 @@ import {
   ActionTypes,
   AsyncActionType,
   Success,
+  Request,
+  Failure,
 } from '../model';
 
 const requestsStatusesRootSelector = (state: {
@@ -112,4 +114,35 @@ export const useSuccessPayloadSelector = <T extends AsyncActionType>(
   return requestData?.status === ActionSubTypes.SUCCESS
     ? requestData.payload
     : undefined;
+};
+
+export const useLoadingPayloadSelector = <T extends AsyncActionType>(
+  action: T,
+): Request<T> | undefined => {
+  const requestData =
+    useRequestsStatusForActionSelector<ActionTypes<T>>(action);
+
+  return requestData?.status === ActionSubTypes.REQUEST
+    ? requestData.payload
+    : undefined;
+};
+
+export const useFailedPayloadSelector = <T extends AsyncActionType>(
+  action: T,
+): Failure<T> | undefined => {
+  const requestData =
+    useRequestsStatusForActionSelector<ActionTypes<T>>(action);
+
+  return requestData?.status === ActionSubTypes.FAILURE
+    ? requestData.payload
+    : undefined;
+};
+
+export const useIsCanceledSelector = <T extends AsyncActionType>(
+  action: T,
+): boolean => {
+  const requestData =
+    useRequestsStatusForActionSelector<ActionTypes<T>>(action);
+
+  return requestData?.status === ActionSubTypes.CANCEL;
 };

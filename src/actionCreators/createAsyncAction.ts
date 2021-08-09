@@ -1,4 +1,4 @@
-import { createAction } from '@reduxjs/toolkit';
+import { createAction } from './createAction';
 import {
   AsyncActionType,
   DefaultPayload,
@@ -10,7 +10,7 @@ import { ActionStructure, ACTION_SUBTYPE } from './actionCreators.types';
 export const ACTION_DIVIDER = ' ~> ';
 
 const produceActionGenerator = (majorType: string, id: ActionID) =>
-  createAction(majorType, (payload) => ({
+  createAction(majorType, (payload: unknown) => ({
     payload,
     meta: { id },
   }));

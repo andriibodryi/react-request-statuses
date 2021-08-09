@@ -1,6 +1,8 @@
-import { PayloadAction, AnyAction } from '@reduxjs/toolkit';
+import { Action } from 'redux';
 
-export type { AnyAction }
+export interface AnyAction extends Action {
+  [extraProps: string]: any;
+}
 
 export interface ApiError {
   code: number;
@@ -51,7 +53,7 @@ export type AsyncActionType<
   T2 = DefaultPayload,
   T3 = DefaultPayload,
   T4 = DefaultPayload,
-  M = Meta
+  M = Meta,
 > = {
   REQUEST: AsyncAction<T1, M>;
   SUCCESS: AsyncAction<T2, M>;
@@ -68,3 +70,22 @@ export type ActionTypes<T> = AsyncActionType<
 >;
 
 export type AsyncActionArrayMaybe = AsyncActionType | AsyncActionType[];
+
+export type PayloadAction<
+  P = void,
+  T extends string = string,
+  M = never,
+  E = never,
+> = {
+  payload: P;
+  type: T;
+} & ([M] extends [never]
+  ? {}
+  : {
+      meta: M;
+    }) &
+  ([E] extends [never]
+    ? {}
+    : {
+        error: E;
+      });

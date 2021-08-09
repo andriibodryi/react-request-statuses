@@ -7,6 +7,7 @@ import {
   useReasonFailedSelector,
   useIsFailedSelector,
   useIsSuccessSelector,
+  useIsCanceledSelector,
 } from '../selectors';
 import { ActionSubscriptionType, ActionTypes } from '../model';
 
@@ -15,9 +16,10 @@ export const useActionSubscription = <T extends ActionTypes<T>>(
 ): ActionSubscriptionType<T> => {
   const isFailed = useIsFailedSelector(asyncAction);
   const isSuccess = useIsSuccessSelector(asyncAction);
+  const isCanceled = useIsCanceledSelector(asyncAction);
 
   return useCallback(
-    (onSuccessCallback, onFailedCallback) => {
+    (onSuccessCallback, onFailedCallback, onCanceledCallback) => {
       const reasonFailedAction = useReasonFailedSelector<T>(asyncAction);
       const successActionPayload = useSuccessPayloadSelector<T>(asyncAction);
 
@@ -38,10 +40,18 @@ export const useActionSubscription = <T extends ActionTypes<T>>(
           ) {
             onSuccessCallback(successActionPayload);
           }
+
+          if (
+            prevProps.isCanceled !== isCanceled &&
+            isCanceled &&
+            onCanceledCallback
+          ) {
+            onCanceledCallback();
+          }
         },
-        { isFailed, isSuccess },
+        { isFailed, isSuccess, isCanceled },
       );
     },
-    [asyncAction, isFailed, isSuccess],
+    [asyncAction, isFailed, isSuccess, isCanceled],
   );
 };
